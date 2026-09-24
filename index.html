@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Um convite especial</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         TELA INICIAL
+         ========================= -->
+
+    <main
+        class="container"
+        id="startScreen"
+    >
+
+        <!--
+            Memes do fundo.
+
+            Os memes são adicionados
+            automaticamente pelo script.js.
+        -->
+
+        <div
+            class="backgroundMemes"
+            id="backgroundMemes"
+        ></div>
+
+
+        <!-- =========================
+             CONVITE
+             ========================= -->
+
+        <div class="card">
+
+            <!--
+                O texto da pergunta é definido
+                pela configuração no script.js.
+            -->
+
+            <h1 id="question"></h1>
+
+
+            <div class="buttons">
+
+
+                <!-- BOTÃO SIM -->
+
+                <button id="yesButton">
+                    SIM ❤️
+                </button>
+
+
+                <!-- BOTÃO NÃO -->
+
+                <button id="noButton">
+                    NÃO
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         TELA DE SUCESSO
+         ========================= -->
+
+    <main
+        class="successScreen"
+        id="successScreen"
+    >
+
+        <div class="successCard">
+
+
+            <!--
+                O título é definido
+                pelo script.js.
+            -->
+
+            <h1 id="successTitle"></h1>
+
+
+            <!--
+                A mensagem é definida
+                pelo script.js.
+            -->
+
+            <p id="successMessage"></p>
+
+
+            <!-- =========================
+                 MEME DE SUCESSO
+                 ========================= -->
+
+            <div class="successMeme">
+
+                <img
+                    src="imagens/memes/sucesso.jpg"
+                    alt="Meme de comemoração"
+                >
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
