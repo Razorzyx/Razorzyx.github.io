@@ -71,6 +71,18 @@ let attempts = 0;
 
 
 // =========================
+// CONTROLE DO MOVIMENTO
+// =========================
+//
+// Impede que o mesmo movimento
+// gere várias tentativas seguidas
+// enquanto o botão ainda está fugindo.
+//
+
+let noButtonMoving = false;
+
+
+// =========================
 // APLICA A CONFIGURAÇÃO
 // =========================
 
@@ -770,9 +782,9 @@ function findSafePosition(
 // No celular:
 // tocar no botão faz o botão fugir.
 //
-// Usamos Pointer Events porque eles
-// funcionam tanto com mouse quanto
-// com tela de toque.
+// O bloqueio noMoving impede que
+// uma única aproximação do mouse
+// dispare várias fugas.
 //
 
 noButton.addEventListener(
@@ -788,6 +800,8 @@ noButton.addEventListener(
 
         if (
             event.pointerType === "mouse"
+            &&
+            !noButtonMoving
         ) {
 
             moveNoButton();
@@ -803,20 +817,21 @@ noButton.addEventListener(
         /*
            Impede que o toque/click normal
            seja executado no botão NÃO.
-
-           Em qualquer dispositivo,
-           tocar nele significa apenas
-           tentar fazer o botão fugir.
         */
 
         event.preventDefault();
 
 
         /*
-           Evita que o mesmo toque também
-           seja interpretado como um
-           pointerover no celular.
+           Se o botão ainda estiver se movendo,
+           ignora o toque.
         */
+
+        if (noButtonMoving) {
+
+            return;
+        }
+
 
         moveNoButton();
     }
@@ -828,6 +843,20 @@ noButton.addEventListener(
 // =========================
 
 function moveNoButton() {
+
+    /*
+       Bloqueia novas tentativas enquanto
+       o botão está executando a fuga.
+    */
+
+    if (noButtonMoving) {
+
+        return;
+    }
+
+
+    noButtonMoving = true;
+
 
     attempts++;
 
@@ -915,6 +944,25 @@ function moveNoButton() {
 
     noButton.style.top =
         `${safePosition.y}px`;
+
+
+    /*
+       Libera uma nova tentativa depois
+       que a animação de fuga terminou.
+
+       O tempo é um pouco maior que os
+       0.4 segundos da transição.
+    */
+
+    setTimeout(
+        () => {
+
+            noButtonMoving = false;
+
+        },
+
+        450
+    );
 }
 
 
