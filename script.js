@@ -12,13 +12,13 @@
 const config = {
 
     pergunta:
-        "Quer sair comigo gatinha?",
+        "Quer sair comigo?",
 
     tituloSucesso:
-        "ESCOLHA CERTA, parabens! ❤️",
+        "ESCOLHA CERTA, parabéns! ❤️",
 
     mensagemSucesso:
-        "Eu sabia que você nao ia resistir!"
+        "Eu sabia que você não ia resistir!"
 };
 
 
@@ -414,13 +414,16 @@ const yesMessages = [
     "O SIM tá crescendo",
     "Você percebeu que o SIM tá gigante, né?",
     "Aperta aqui então",
+    "Sim🙏",
+    "👉Sim👈",
     "Sim",
     "Sim, Sim",
     "Sim, Sim, Sim",
     "Sim, Sim, Sim, Sim",
     "Siiiiiiiiiiiiiiiiiiiiiiiim!",
     "Siiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiim!",
-    "SIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIM!!!!!!!!!!!"
+    "SIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIM!!!!!!!!!!!",
+    ">>>>>>>>>>SIM!!!<<<<<<<<<<"
 ];
 
 
@@ -947,11 +950,12 @@ function moveNoButton() {
 
 
     /*
-       Libera uma nova tentativa depois
-       que a animação de fuga terminou.
+       Libera uma nova tentativa
+       depois de 300ms.
 
-       O tempo é um pouco maior que os
-       0.4 segundos da transição.
+       Isso deixa o botão mais responsivo,
+       mas ainda evita que uma única
+       passagem do mouse gere várias mensagens.
     */
 
     setTimeout(
@@ -961,7 +965,7 @@ function moveNoButton() {
 
         },
 
-        450
+        300
     );
 }
 
